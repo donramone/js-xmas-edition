@@ -34,5 +34,30 @@ function probarValidarCiudad(){
     );
 }
 
+function probarValidarDescipcionRegalo(){
+    console.assert(
+        validarDescripcionRegalo("")==="El campo descripcion regalo no puede estar vacio",
+        "validarDescripcionRegalo no mostro un error cuando la descripcion de regalo es vacia"
+    );
+
+    console.assert(
+        validarDescripcionRegalo("zxsdiqqtkksjdksjdsdkjslkdjskldjsluigiksjdksjdsdkjslkdjskldjsluigiksjdksjdsdkjslkdjskldjsluigiksjdksjdsdkjslkdjskldjsluigiksjdksjdsdkjslkdjskldjsluigiksjdksjdsdkjslkdjskldjluigiksjdksjdsdkjslkdjskldjsluigiksjdksjdsdkjslkdjskldjss")==="El campo descripcion regalo no puede tener mas de 100 caracteres",
+        "La funcion validarDescripcionRegalo no valido que el campo descripcion tenga menos de 100 caracteres"
+    );
+
+    console.assert(
+        validarDescripcionRegalo(".,.,.,")==="El campo descripcion regalo solo puede tener caracteres y numeros",
+        "La funcion validarDescripcionRegalo no valido que fueran caracteres invalidos."
+    );
+
+    console.assert(
+        validarDescripcionRegalo("bonito")==="",
+        "la funcion validarDescripcionRegalo no funciono con una descripcion correcta."
+    );
+
+
+}
+
 probarValidarNombre();
 probarValidarCiudad();
+probarValidarDescipcionRegalo();

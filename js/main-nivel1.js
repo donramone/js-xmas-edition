@@ -35,3 +35,22 @@ function validarCiudad(ciudad) {
     return "";
   
   }
+function validarDescripcionRegalo(descripcionRegalo) {
+
+    if (descripcionRegalo.length >= 100) {
+  
+        return "El campo descripcion es muy largo";
+  
+    } else if (descripcionRegalo.length === 0) {
+  
+        return "El campo descripcion no puede estar vacio";
+  
+    } else if (!/^[a-z0-9]+$/i.test(descripcionRegalo)) {
+  
+        return "El campo descripción sólo puede tener números y letras";
+  
+    } else {
+  
+        return "";
+    }
+}
