@@ -11,7 +11,7 @@ function probarValidarNombre() {
     );
   
     console.assert(
-      validarNombre("123456789")==="El campo nombres solo acepta letras",
+      validarNombre("123456789")==="El campo nombre solo acepta letras",
       "la funcion validarNombre no valido que el campo solo contega letras."
     );
   
@@ -24,7 +24,7 @@ function probarValidarNombre() {
 function probarValidarCiudad(){
     
     console.assert(
-        validarCiudad("") === "El campo Ciudad no puede estar vacio",
+        validarCiudad("") === "El campo ciudad no puede estar vacio",
         "validarCiudad no mostro un error cuando la ciudad es vacia"
     );
 
