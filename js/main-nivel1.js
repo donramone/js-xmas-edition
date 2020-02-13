@@ -23,4 +23,15 @@ function validarNombre(nombre) {
     return "";
   
   }
+
+function validarCiudad(ciudad) {
+
+    if (ciudad.length === 0) {
   
+        return "El campo ciudad no puede estar vacío";
+  
+    }
+    
+    return "";
+  
+  }

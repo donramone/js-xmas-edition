@@ -21,5 +21,18 @@ function probarValidarNombre() {
     );
   
   }
+function probarValidarCiudad(){
+    
+    console.assert(
+        validarCiudad("") === "El campo Ciudad no puede estar vacio",
+        "validarCiudad no mostro un error cuando la ciudad es vacia"
+    );
 
-  probarValidarNombre();
+    console.assert(
+        validarCiudad('Cordoba') === "",
+        "la funcion validarCiudad fallo con un nombre de ciudad valido"
+    );
+}
+
+probarValidarNombre();
+probarValidarCiudad();
