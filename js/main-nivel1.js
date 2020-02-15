@@ -65,29 +65,76 @@ function validarFormulario(event){
       'descripcion-regalo':errorDescripcionRegalo
 
   };
-  
-  manejarErrores(objErrores);
+
+  const isSuccess  = manejarErrores(objErrores) === 0;
+
+  if(isSuccess){
+    showWishList();
+  }
+
   event.preventDefault();
 
 }
 
+function showWishList(){
+  document.querySelector("#carta-a-santa").className="oculto";
+  document.querySelector("#exito").className="";
+  setTimeout(function(){location.href="wishlist.html"} , 5000); 
+}
+
 function manejarErrores(errores){
 
- const keys = Object.keys(errores);
- 
- keys.forEach(function(key) {
-    const error = errores[key];
+  const keys = Object.keys(errores);
+  const $errores = document.querySelector("#errores");
+  let totalError =0;
+  cleanAllErrors();
+  keys.forEach(function(key) {
+  const error = errores[key];
   
   if(error){
+      totalError++;
       $form[key].className = "error";
+      const $error = document.createElement("li");
+      $error.setAttribute("id",key);
+      $error.innerText = error;
+      $errores.appendChild($error);
+
+      
   }else{
       $form[key].className= "";
   }
-
  });
 
+return totalError;
 
 }
+function cleanError(idElementoLista){
+  
+  let ul = document.getElementById("errores");
+  let li =document.getElementById('errores').getElementsByTagName('li');
+  let totalElementos = document.getElementById('errores').getElementsByTagName('li').length;
+
+  for(i= 0;i < totalElementos  ;i++) {
+
+    if (li[i].id == idElementoLista ){
+      ul.removeChild(ul.children[(i)]);
+    }
+  }
+}
+
+function cleanAllErrors(){
+  
+  let ul = document.getElementById("errores");
+  if (ul) {
+    while (ul.firstChild) {
+      ul.removeChild(ul.firstChild);
+  }
+  
+  } else {
+    console.log("el elemento ul NO TIENE cosas");
+  }
+}
+
 
 const $form = document.querySelector("#carta-a-santa");
 $form.onsubmit = validarFormulario;
