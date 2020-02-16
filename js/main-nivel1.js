@@ -35,7 +35,7 @@ function validarCiudad(ciudad) {
     return "";
   
   }
-function validarDescripcionRegalo(Descripcionregalo){
+function validarDescripcionRegalo(descripcionRegalo){
   if (Descripcionregalo.length ===0) {
     return "El campo descripcion regalo no puede estar vacio";
   }
